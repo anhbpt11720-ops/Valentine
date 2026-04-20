@@ -9,6 +9,17 @@ const toggle = document.getElementById("musicToggle");
 
 music.volume = 0.3;
 
+let musicStarted = false;
+
+function startMusicOnce() {
+  if (!musicStarted) {
+    music.play();
+    musicStarted = true;
+  }
+}
+
+document.addEventListener("click", startMusicOnce);
+
 toggle.onclick = () => {
   if (music.paused) music.play();
   else music.pause();
